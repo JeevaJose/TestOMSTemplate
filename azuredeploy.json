@@ -137,69 +137,8 @@
           }
         }
       }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2016-02-01",
-      "name": "omsRecoveryServices",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[variables('nestedTemplates').omsRecoveryServices]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "omsRecoveryVaultName": {
-            "value": "[parameters('omsRecoveryVaultName')]"
-          },
-          "omsRecoveryVaultRegion": {
-            "value": "[parameters('omsRecoveryVaultRegion')]"
-          }
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2016-02-01",
-      "name": "omsAutomation",
-      "dependsOn": [
-        "[concat('Microsoft.Resources/deployments/', 'omsRecoveryServices')]",
-        "[concat('Microsoft.Resources/deployments/', 'omsWorkspace')]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[variables('nestedTemplates').omsAutomation]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "omsAutomationAccountName": {
-            "value": "[parameters('omsAutomationAccountName')]"
-          },
-          "omsAutomationRegion": {
-            "value": "[parameters('omsAutomationRegion')]"
-          },
-          "omsRecoveryVaultName": {
-            "value": "[parameters('omsRecoveryVaultName')]"
-          },
-          "omsWorkspaceName": {
-            "value": "[parameters('omsWorkspaceName')]"
-          },
-          "azureAdmin": {
-            "value": "[parameters('azureAdmin')]"
-          },
-          "azureAdminPwd": {
-            "value": "[parameters('azureAdminPwd')]"
-          },
-          "_artifactsLocation": {
-            "value": "[parameters('_artifactsLocation')]"
-          },
-          "_artifactsLocationSasToken": {
-            "value": "[parameters('_artifactsLocationSasToken')]"
-          }
-        }
-      }
     }
+   
   ],
   "outputs": { }
 }
