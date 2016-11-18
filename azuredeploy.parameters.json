@@ -27,7 +27,7 @@
       "value": "azureadmin"
     },
     "_artifactsLocation": {
-      "value": ""
+      "value": "https://raw.githubusercontent.com/JeevaJose/TestOMSTemplate/master"
     }
   }
 }
